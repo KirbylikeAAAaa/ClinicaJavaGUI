@@ -1,0 +1,14 @@
+# Imagen base oficial de Ubuntu
+FROM ubuntu:latest
+
+# Instalacion de Nginx
+RUN apt-get update && apt-get install -y nginx
+
+# Copia de contenido de la aplicación en el contenedor
+COPY . /var/www/html
+
+# Habilita puerto 80 para Nginx
+EXPOSE 80
+
+# Comando por defecto para ejecutar Nginx
+CMD ["nginx", "-g", "daemon off;"]
